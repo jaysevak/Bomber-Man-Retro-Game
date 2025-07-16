@@ -834,6 +834,109 @@ body {
     }
 }
 
+/* Mobile Joystick Controls */
+.mobile-controls {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    pointer-events: none;
+}
+
+.joystick-container {
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    pointer-events: all;
+}
+
+.joystick-pad {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    background: rgba(0, 0, 0, 0.7);
+    border: 2px solid #ff8000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.joystick-btn {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    background: #ff8000;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+    touch-action: manipulation;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#btn-up { top: 5px; left: 50%; transform: translateX(-50%); }
+#btn-down { bottom: 5px; left: 50%; transform: translateX(-50%); }
+#btn-left { left: 5px; top: 50%; transform: translateY(-50%); }
+#btn-right { right: 5px; top: 50%; transform: translateY(-50%); }
+
+.joystick-btn:active {
+    background: #ff4000;
+}
+
+#btn-up:active { transform: translateX(-50%) scale(0.9); }
+#btn-down:active { transform: translateX(-50%) scale(0.9); }
+#btn-left:active { transform: translateY(-50%) scale(0.9); }
+#btn-right:active { transform: translateY(-50%) scale(0.9); }
+
+.action-container {
+    position: absolute;
+    bottom: 0;
+    right: 20px;
+    pointer-events: all;
+}
+
+.action-btn {
+    width: 70px;
+    height: 70px;
+    background: #ff0000;
+    border: 3px solid #ffffff;
+    border-radius: 50%;
+    color: #ffffff;
+    font-size: 24px;
+    cursor: pointer;
+    user-select: none;
+    touch-action: manipulation;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.action-btn:active {
+    background: #cc0000;
+    transform: scale(0.9);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Show mobile controls only on mobile devices */
+@media (max-width: 767px) {
+    .mobile-controls {
+        display: block;
+    }
+    
+    .control-hint {
+        display: none;
+    }
+}
+
 /* CRT Effect (Optional) */
 .crt-overlay {
     position: absolute;

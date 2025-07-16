@@ -62,6 +62,33 @@ class Bomberman {
     setupEventListeners() {
         document.addEventListener('keydown', (e) => this.handleKeyDown(e));
         document.addEventListener('keyup', (e) => this.handleKeyUp(e));
+        this.setupMobileControls();
+    }
+    
+    setupMobileControls() {
+        const mobileButtons = document.querySelectorAll('.joystick-btn, .action-btn');
+        
+        mobileButtons.forEach(button => {
+            const keyCode = button.dataset.key;
+            
+            button.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                this.keys[keyCode] = true;
+                if (keyCode === 'Space') {
+                    this.placeBomb(0);
+                }
+            });
+            
+            button.addEventListener('touchend', (e) => {
+                e.preventDefault();
+                this.keys[keyCode] = false;
+            });
+            
+            button.addEventListener('touchcancel', (e) => {
+                e.preventDefault();
+                this.keys[keyCode] = false;
+            });
+        });
     }
     
     handleKeyDown(e) {
