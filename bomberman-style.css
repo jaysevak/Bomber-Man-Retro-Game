@@ -949,25 +949,25 @@ body {
     
     .mobile-controls.show .joystick-pad {
         position: relative;
-        width: 100px;
-        height: 100px;
+        width: 120px;
+        height: 120px;
         background: rgba(0, 0, 0, 0.8);
         border: 3px solid #ff8000;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr;
-        gap: 2px;
-        padding: 5px;
+        gap: 3px;
+        padding: 8px;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
     }
     
     .mobile-controls.show .joystick-btn {
-        width: 28px;
-        height: 28px;
+        width: 32px;
+        height: 32px;
         background: #ff8000;
         border: 2px solid #ffffff;
         color: #ffffff;
-        font-size: 16px;
+        font-size: 18px;
         font-weight: bold;
         cursor: pointer;
         user-select: none;
