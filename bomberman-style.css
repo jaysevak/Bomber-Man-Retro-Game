@@ -926,9 +926,9 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-/* Show mobile controls only during gameplay on mobile devices */
+/* Show mobile controls only on mobile devices */
 @media (max-width: 767px) {
-    #game-screen.active .mobile-controls {
+    .mobile-controls.show {
         display: block;
         position: fixed;
         bottom: 20px;
@@ -939,7 +939,7 @@ body {
         transform: none !important;
     }
     
-    #game-screen.active .joystick-container {
+    .mobile-controls.show .joystick-container {
         position: fixed;
         bottom: 20px;
         left: 20px;
@@ -947,7 +947,7 @@ body {
         z-index: 10001;
     }
     
-    #game-screen.active .joystick-pad {
+    .mobile-controls.show .joystick-pad {
         position: relative;
         width: 100px;
         height: 100px;
@@ -961,7 +961,7 @@ body {
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
     }
     
-    #game-screen.active .joystick-btn {
+    .mobile-controls.show .joystick-btn {
         width: 28px;
         height: 28px;
         background: #ff8000;
@@ -983,12 +983,12 @@ body {
     #btn-right { grid-column: 3; grid-row: 2; }
     #btn-down { grid-column: 2; grid-row: 3; }
     
-    #game-screen.active .joystick-btn:active {
+    .mobile-controls.show .joystick-btn:active {
         background: #ff4000;
         transform: scale(0.9);
     }
     
-    #game-screen.active .action-container {
+    .mobile-controls.show .action-container {
         position: fixed;
         bottom: 20px;
         right: 20px;
@@ -996,7 +996,7 @@ body {
         z-index: 10001;
     }
     
-    #game-screen.active .action-btn {
+    .mobile-controls.show .action-btn {
         width: 60px;
         height: 60px;
         background: #ff0000;
@@ -1012,7 +1012,7 @@ body {
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
     }
     
-    #game-screen.active .action-btn:active {
+    .mobile-controls.show .action-btn:active {
         background: #cc0000;
         transform: scale(0.9);
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);

@@ -993,6 +993,16 @@ class Bomberman {
         if (targetScreen) {
             targetScreen.classList.add('active');
         }
+        
+        // Show/hide mobile controls based on game state
+        const mobileControls = document.getElementById('mobile-controls');
+        if (mobileControls) {
+            if (screenId === 'game-screen') {
+                mobileControls.classList.add('show');
+            } else {
+                mobileControls.classList.remove('show');
+            }
+        }
     }
 }
 
