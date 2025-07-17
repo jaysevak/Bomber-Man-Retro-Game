@@ -1224,9 +1224,9 @@ body {
 .mobile-controls {
     display: none;
     position: fixed;
-    bottom: 10px;
-    left: 10px;
-    right: 10px;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
     z-index: 1000;
     justify-content: space-between;
     align-items: flex-end;
@@ -1239,56 +1239,53 @@ body {
 
 .joystick-pad {
     position: relative;
-    width: 120px;
-    height: 120px;
-    background: rgba(0, 0, 0, 0.7);
-    border: 2px solid #00ffff;
-    border-radius: 50%;
-    display: grid;
-    grid-template-areas: 
-        ". up ."
-        "left . right"
-        ". down .";
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    gap: 5px;
-    padding: 10px;
+    width: 180px;
+    height: 180px;
+    background: rgba(0, 0, 0, 0.8);
+    border: 3px solid #ff0066;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .joystick-btn {
-    background: rgba(0, 255, 255, 0.8);
-    border: 1px solid #00ffff;
-    color: #000;
-    font-size: 1.2rem;
-    font-weight: bold;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    touch-action: manipulation;
-    user-select: none;
-}
-
-#btn-up { grid-area: up; }
-#btn-left { grid-area: left; }
-#btn-right { grid-area: right; }
-#btn-down { grid-area: down; }
-
-.action-btn {
-    background: rgba(255, 0, 100, 0.8);
+    background: rgba(255, 0, 100, 0.9);
     border: 2px solid #ff0066;
     color: #fff;
-    font-size: 2rem;
-    width: 80px;
-    height: 80px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    border-radius: 10px;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    touch-action: manipulation;
+    user-select: none;
+    position: absolute;
+    box-shadow: 0 0 10px rgba(255, 0, 100, 0.3);
+}
+
+#btn-up { top: 5px; left: 50%; transform: translateX(-50%); }
+#btn-down { bottom: 5px; left: 50%; transform: translateX(-50%); }
+#btn-left { left: 5px; top: 50%; transform: translateY(-50%); }
+#btn-right { right: 5px; top: 50%; transform: translateY(-50%); }
+
+.action-btn {
+    background: rgba(255, 128, 0, 0.9);
+    border: 3px solid #ff8000;
+    color: #fff;
+    font-size: 2.5rem;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     touch-action: manipulation;
     user-select: none;
+    box-shadow: 0 0 20px rgba(255, 128, 0, 0.5);
 }
 
 /* Enhanced Mobile Responsive Design */
@@ -1387,7 +1384,7 @@ body {
         font-size: 0.5rem;
     }
     
-    .mobile-controls {
+    #game-screen.active .mobile-controls {
         display: flex;
     }
 }
