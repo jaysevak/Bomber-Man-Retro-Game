@@ -68,6 +68,7 @@ class SoundManager {
                 playerMove: 'player_run.ogg',
                 playerDeath: 'player_death.wav',
                 playerHurt: 'player_hurt.wav',
+                buttonClick: 'button.wav',
                 
                 // Enemy sounds
                 enemyDeath: 'enemy_basic_death.ogg',
@@ -227,6 +228,10 @@ class SoundManager {
     
     onMenuSelect() {
         this.playSound('menuSelect', 0.5);
+    }
+    
+    onButtonClick() {
+        this.playSound('buttonClick', 0.6);
     }
     
     onGameOver() {

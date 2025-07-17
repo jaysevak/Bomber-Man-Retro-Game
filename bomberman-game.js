@@ -27,6 +27,7 @@ class Bomberman {
         this.spriteLoader = null;
         this.soundManager = null;
         this.levelCompleted = false;
+        this.isMobile = window.innerWidth <= 767;
         
         this.initializeGame();
     }
@@ -266,7 +267,7 @@ class Bomberman {
             // Smooth pixel-based movement
             let targetX = player.x * this.tileSize;
             let targetY = player.y * this.tileSize;
-            let moveSpeed = 4;
+            let moveSpeed = this.isMobile ? 3 : 4;
             
             // Check for new grid movement
             let newGridX = player.x;
@@ -352,7 +353,8 @@ class Bomberman {
         this.enemies.forEach(enemy => {
             enemy.moveTimer++;
             
-            if (enemy.moveTimer >= 30) { // Move every 30 frames (0.5 seconds)
+            const enemyMoveDelay = this.isMobile ? 35 : 30;
+            if (enemy.moveTimer >= enemyMoveDelay) { // Move every 30/45 frames
                 enemy.moveTimer = 0;
                 
                 // Try to move in current direction
@@ -1010,7 +1012,7 @@ class Bomberman {
 function startBombermanGame() {
     if (window.bomberman) {
         window.bomberman.soundManager?.enableAudio();
-        window.bomberman.soundManager?.onMenuSelect();
+        window.bomberman.soundManager?.onButtonClick();
         window.bomberman.startGame();
     }
 }
@@ -1018,7 +1020,7 @@ function startBombermanGame() {
 function showBombermanInstructions() {
     if (window.bomberman) {
         window.bomberman.soundManager?.enableAudio();
-        window.bomberman.soundManager?.onMenuSelect();
+        window.bomberman.soundManager?.onButtonClick();
         window.bomberman.showScreen('instructions');
     }
 }
@@ -1026,15 +1028,15 @@ function showBombermanInstructions() {
 function showBombermanCredits() {
     if (window.bomberman) {
         window.bomberman.soundManager?.enableAudio();
-        window.bomberman.soundManager?.onMenuSelect();
+        window.bomberman.soundManager?.onButtonClick();
+        window.bomberman.showScreen('credits');
     }
-    alert('CLASSIC BOMBERMAN\n\nA retro grid-based action game\nPlace bombs and destroy enemies!\n\nCreated with Amazon Q CLI\n\n© 2024');
 }
 
 function showBombermanMenu() {
     if (window.bomberman) {
         window.bomberman.soundManager?.enableAudio();
-        window.bomberman.soundManager?.onMenuSelect();
+        window.bomberman.soundManager?.onButtonClick();
         window.bomberman.gameState = 'menu';
         window.bomberman.soundManager?.startMenuMusic();
         window.bomberman.showScreen('main-menu');
@@ -1044,7 +1046,7 @@ function showBombermanMenu() {
 function restartBombermanGame() {
     if (window.bomberman) {
         window.bomberman.soundManager?.enableAudio();
-        window.bomberman.soundManager?.onMenuSelect();
+        window.bomberman.soundManager?.onButtonClick();
         window.bomberman.startGame();
     }
 }

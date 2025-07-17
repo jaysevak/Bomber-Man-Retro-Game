@@ -676,7 +676,7 @@ body {
     }
 }
 
-/* Mobile Scaling - All Phone Sizes */
+/* Mobile Responsive Canvas Sizing */
 @media (max-width: 767px) {
     .game-title {
         font-size: 1.8rem;
@@ -688,11 +688,23 @@ body {
     }
     
     #game-screen {
-        transform: scale(0.48);
-        width: 208.33vw;
-        height: 208.33vh;
-        left: -54.17vw;
-        top: -54.17vh;
+        transform: none;
+        width: 100vw;
+        height: 100vh;
+        left: 0;
+        top: 0;
+        position: relative;
+    }
+    
+    .game-area {
+        padding: 5px;
+    }
+    
+    #game-canvas {
+        width: calc(100vw - 10px);
+        height: calc((100vw - 10px) * 0.846);
+        max-width: 100%;
+        max-height: calc(100vh - 140px);
     }
 }
 
@@ -707,12 +719,22 @@ body {
         font-size: 0.65rem;
     }
     
-    #game-screen {
-        transform: scale(0.42);
-        width: 238.1vw;
-        height: 238.1vh;
-        left: -69.05vw;
-        top: -69.05vh;
+    #game-canvas {
+        width: calc(100vw - 8px);
+        height: calc((100vw - 8px) * 0.846);
+        max-height: calc(100vh - 120px);
+    }
+    
+    .game-hud {
+        padding: 5px 11px;
+        min-height: 38px;
+        font-size: 0.62rem;
+        order: 2;
+    }
+    
+    .game-area {
+        padding: 2px;
+        order: 1;
     }
 }
 
@@ -731,12 +753,22 @@ body {
         padding: 18px;
     }
     
-    #game-screen {
-        transform: scale(0.38);
-        width: 263.16vw;
-        height: 263.16vh;
-        left: -81.58vw;
-        top: -81.58vh;
+    #game-canvas {
+        width: calc(100vw - 6px);
+        height: calc((100vw - 6px) * 0.846);
+        max-height: calc(100vh - 110px);
+    }
+    
+    .game-hud {
+        padding: 4px 10px;
+        min-height: 35px;
+        font-size: 0.6rem;
+        order: 2;
+    }
+    
+    .game-area {
+        padding: 1px;
+        order: 1;
     }
 }
 
@@ -759,12 +791,22 @@ body {
         font-size: 0.55rem;
     }
     
-    #game-screen {
-        transform: scale(0.35);
-        width: 285.71vw;
-        height: 285.71vh;
-        left: -92.86vw;
-        top: -92.86vh;
+    #game-canvas {
+        width: calc(100vw - 4px);
+        height: calc((100vw - 4px) * 0.846);
+        max-height: calc(100vh - 100px);
+    }
+    
+    .game-hud {
+        padding: 3px 8px;
+        min-height: 32px;
+        font-size: 0.58rem;
+        order: 2;
+    }
+    
+    .game-area {
+        padding: 1px;
+        order: 1;
     }
 }
 
@@ -787,12 +829,74 @@ body {
         font-size: 0.5rem;
     }
     
+    #game-canvas {
+        width: calc(100vw - 2px);
+        height: calc((100vw - 2px) * 0.846);
+        max-height: calc(100vh - 90px);
+    }
+    
+    .game-hud {
+        padding: 3px 8px;
+        min-height: 30px;
+        font-size: 0.6rem;
+        order: 2;
+    }
+    
+    .game-area {
+        padding: 1px;
+        order: 1;
+    }
+}
+
+/* Mobile HUD Responsive Adjustments */
+@media (max-width: 767px) {
     #game-screen {
-        transform: scale(0.32);
-        width: 312.5vw;
-        height: 312.5vh;
-        left: -106.25vw;
-        top: -106.25vh;
+        flex-direction: column-reverse;
+    }
+    
+    .game-hud {
+        padding: 6px 12px;
+        min-height: 40px;
+        font-size: 0.65rem;
+        gap: 20px;
+        order: 2;
+    }
+    
+    .game-area {
+        padding: 2px;
+        order: 1;
+        flex: 1;
+    }
+    
+    .game-controls {
+        display: none;
+    }
+    
+    .hud-label {
+        font-size: 0.6rem;
+        min-width: 50px;
+    }
+    
+    .hud-value {
+        font-size: 0.8rem;
+        padding: 4px 8px;
+        min-width: 35px;
+    }
+    
+    .powerup-display {
+        gap: 8px;
+    }
+    
+    .powerup-item {
+        padding: 2px 4px;
+    }
+    
+    .powerup-icon {
+        font-size: 0.7rem;
+    }
+    
+    .powerup-count {
+        font-size: 0.6rem;
     }
 }
 
@@ -941,7 +1045,7 @@ body {
     
     .mobile-controls.show .joystick-container {
         position: fixed;
-        bottom: 20px;
+        bottom: 80px;
         left: 20px;
         pointer-events: all;
         z-index: 10001;
@@ -1000,7 +1104,7 @@ body {
     
     .mobile-controls.show .action-container {
         position: fixed;
-        bottom: 20px;
+        bottom: 80px;
         right: 20px;
         pointer-events: all;
         z-index: 10001;
